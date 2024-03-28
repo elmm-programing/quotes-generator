@@ -4,11 +4,21 @@ let apiQuotes = []
 const quoteText = document.getElementById('quote')
 const authorText = document.getElementById('author')
 const buttonNewQuote = document.getElementById('new-quote')
+const buttonTwitter = document.getElementById('twitter')
 
 buttonNewQuote.addEventListener('click', () => {
   newQuote()
 })
 
+buttonTwitter.addEventListener('click', () => {
+  tweetQuote()
+})
+
+const tweetQuote = () => {
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`
+  window.open(twitterUrl)
+
+}
 const newQuote = () => {
   if (apiQuotes.length == 0) {
     getQuotes()
